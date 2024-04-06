@@ -1,0 +1,69 @@
+﻿@model Final_Project.Models.User
+
+@{
+    ViewData["Title"] = "BookTable";
+    Layout = "~/Views/Shared/hedaer_footer.cshtml";
+}
+
+<section class="book_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>Book A Table</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <form asp-action="BookTable" method="post">
+                        <div>
+                            <input asp-for="Name" class="form-control" placeholder="Your Name" />
+                        </div>
+                        <div>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                        </div>
+                        <div>
+                            <input asp-for="Email" class="form-control" placeholder="Your Email" />
+                        </div>
+                        <div>
+                            <select asp-for="NumberOfPerson" class="form-control nice-select wide">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input asp-for="DateOfBooking" type="date" class="form-control">
+                        </div>
+                        <div class="btn_box">
+                            <button type="submit">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="map_container ">
+                    <div id="googleMap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<script>
+    console.log("Executing JavaScript");
+    var message = '@(ViewBag.Message)';
+    if (message) {
+        alert(message);
+    }
+</script>
+
