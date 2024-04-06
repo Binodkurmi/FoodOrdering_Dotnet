@@ -9,6 +9,7 @@ namespace Final_Project.Controllers
     [Authorize]
     public class FoodController : Controller
     {
+       
         private readonly string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookTable;Integrated Security=True;Connect Timeout=30;Encrypt=False;MultiSubnetFailover=False";
 
         public IActionResult Index()
